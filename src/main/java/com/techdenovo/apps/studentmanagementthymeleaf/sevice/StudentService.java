@@ -12,11 +12,19 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    public List<Student> getAllStudents(){
+        return studentRepository.findAll();
+    }
     public List<Student> getStudentsByName(String name){
         return studentRepository.findByFirstName(name);
+    }
+
+    public List<Student> getStudentsByCollege(String name){
+        return studentRepository.findByCollegeName(name);
     }
 
     public Student createStudent(Student student){
         return studentRepository.save(student);
     }
+
 }

@@ -13,9 +13,18 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    @GetMapping("/")
+    public List<Student> getAllStudents(){
+        return studentService.getAllStudents();
+    }
+
     @GetMapping("/findbyname")
     public List<Student> getStudentsByName(@RequestParam String name){
         return studentService.getStudentsByName(name);
+    }
+    @GetMapping("/findbycollege")
+    public List<Student> getStudentsByCollegeName(@RequestParam String name){
+        return studentService.getStudentsByCollege(name);
     }
 
     @PostMapping("/create")
