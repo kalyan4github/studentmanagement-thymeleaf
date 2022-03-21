@@ -24,6 +24,11 @@ public class StudentService {
         return studentRepository.findByCollegeName(name);
     }
 
+    public Student getStudentById(Long id){
+        Student student = studentRepository.findById(id).orElse(null);
+        return student;
+    }
+
     public Student createOrUpdateStudent(Student student){
         if(student.getId()==null) {
             return studentRepository.save(student);
@@ -44,4 +49,5 @@ public class StudentService {
     public void deleteStudent(Long id){
         studentRepository.deleteById(id);
     }
+
 }
