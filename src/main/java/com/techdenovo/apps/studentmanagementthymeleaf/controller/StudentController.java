@@ -37,4 +37,9 @@ public class StudentController {
         model.addAttribute("student", student);
         return "update-student";
     }
+    @PostMapping("edit/{id}")
+    public String UpdateStudent(@PathVariable("id") long id, Student student, Model model) {
+       studentService.createOrUpdateStudent(student);
+            return "redirect:/students/";
+    }
 }
